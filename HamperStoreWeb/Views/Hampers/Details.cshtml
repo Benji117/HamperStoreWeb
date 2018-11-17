@@ -1,0 +1,30 @@
+﻿@model HamperStoreWeb.DataAcess.Models.Hamper
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hamper</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HamperName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HamperName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.HamperId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

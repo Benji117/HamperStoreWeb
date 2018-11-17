@@ -12232,11 +12232,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\harol\\source\\repos\\HamperStoreWeb\\HamperStoreWeb\\HamperStoreWeb.csproj",
+      "projectUniqueName": "C:\\Users\\harol\\Desktop\\HamperStoreWeb\\HamperStoreWeb\\HamperStoreWeb.csproj",
       "projectName": "HamperStoreWeb",
-      "projectPath": "C:\\Users\\harol\\source\\repos\\HamperStoreWeb\\HamperStoreWeb\\HamperStoreWeb.csproj",
+      "projectPath": "C:\\Users\\harol\\Desktop\\HamperStoreWeb\\HamperStoreWeb\\HamperStoreWeb.csproj",
       "packagesPath": "C:\\Users\\harol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\harol\\source\\repos\\HamperStoreWeb\\HamperStoreWeb\\obj\\",
+      "outputPath": "C:\\Users\\harol\\Desktop\\HamperStoreWeb\\HamperStoreWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
