@@ -9,11 +9,11 @@ namespace HamperStoreWeb.DataAcess.Models
     public class Product
     {
         public int ProductId { get; set; }
-        [Required,StringLength(50)]
+        [Required,StringLength(50), Display(Name = "Product Name")]
         public string ProductName { get; set; }
-        [Required, MaxLength(10)]
+        [Required, MaxLength(10), Display(Name = "Product Code")]
         public int ProductCOde { get; set; }
-        [Required, MaxLength(10)]
+        [Required, MaxLength(10), Display(Name = "Price")]
         public decimal Price { get; set; }
         [Required]
         public bool Discontinued { get; set; }
@@ -22,7 +22,5 @@ namespace HamperStoreWeb.DataAcess.Models
         //Added Virtual Property to Allow EF to Lazy-load Genre and Artist as Necessary
         public virtual Category Category { get; set; }
          
-
-
     }
 }

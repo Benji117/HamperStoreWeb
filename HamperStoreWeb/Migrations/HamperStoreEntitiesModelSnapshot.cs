@@ -75,6 +75,10 @@ namespace HamperStoreWeb.Migrations
 
                     b.Property<int>("CustomerId");
 
+                    b.Property<int>("HamperCategoryId");
+
+                    b.Property<int?>("HamperCategoryId1");
+
                     b.Property<string>("HamperName")
                         .IsRequired();
 
@@ -84,7 +88,27 @@ namespace HamperStoreWeb.Migrations
 
                     b.HasIndex("CustomerId");
 
+                    b.HasIndex("HamperCategoryId1");
+
                     b.ToTable("Hampers");
+                });
+
+            modelBuilder.Entity("HamperStoreWeb.DataAcess.Models.HamperCategory", b =>
+                {
+                    b.Property<int>("HamperCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Discontinued");
+
+                    b.Property<string>("HamperCategoryName")
+                        .IsRequired();
+
+                    b.Property<int>("HamperId");
+
+                    b.HasKey("HamperCategoryId");
+
+                    b.ToTable("HamperCategories");
                 });
 
             modelBuilder.Entity("HamperStoreWeb.DataAcess.Models.Product", b =>
@@ -120,6 +144,10 @@ namespace HamperStoreWeb.Migrations
                         .WithMany("Hampers")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("HamperStoreWeb.DataAcess.Models.HamperCategory", "HamperCategory")
+                        .WithMany()
+                        .HasForeignKey("HamperCategoryId1");
                 });
 
             modelBuilder.Entity("HamperStoreWeb.DataAcess.Models.Product", b =>

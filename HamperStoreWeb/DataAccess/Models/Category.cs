@@ -8,7 +8,7 @@ namespace HamperStoreWeb.DataAcess.Models
     public class Category
     {
         public int CategoryId { get; set; }
-        [Required]
+        [Required, Display(Name = "Category Name")]
         public string CategoryName { get; set; }
         
         
