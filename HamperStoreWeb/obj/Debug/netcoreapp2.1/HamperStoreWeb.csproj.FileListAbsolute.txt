@@ -97,3 +97,4 @@ C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Ham
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.dll
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.pdb
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.csproj.CopyComplete
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.csprojAssemblyReference.cache
