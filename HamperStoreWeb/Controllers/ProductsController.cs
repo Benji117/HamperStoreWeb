@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HamperStoreWeb.DataAcess.Models;
-using HamperStoreWeb.ViewModels;
 
 namespace HamperStoreWeb.Controllers
 {
@@ -17,11 +16,6 @@ namespace HamperStoreWeb.Controllers
         public ProductsController(HamperStoreEntities context)
         {
             _context = context;
-        }
-        public string GenerateRandomProductCode()
-        {
-            Random random = new Random(10);
-            return random.ToString();
         }
 
         // GET: Products
@@ -54,8 +48,7 @@ namespace HamperStoreWeb.Controllers
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
-            var productCreateViewModel = new ProductCreateViewModel();
-            return View(productCreateViewModel);
+            return View();
         }
 
         // POST: Products/Create
@@ -67,10 +60,7 @@ namespace HamperStoreWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.ProductCOde = Convert.ToInt32(GenerateRandomProductCode());
-                //TODO: add cateogry before adding new products
                 _context.Add(product);
-               
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

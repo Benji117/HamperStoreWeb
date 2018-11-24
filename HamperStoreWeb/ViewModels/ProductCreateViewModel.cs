@@ -20,8 +20,10 @@ namespace HamperStoreWeb.ViewModels
         public decimal Price { get; set; }
         [Required]
         public bool Discontinued { get; set; }
-        
-        
+       
+        public IEnumerable<Category> categories { get; set; }
+
+
 
     }
 }

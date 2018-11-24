@@ -17,6 +17,7 @@ namespace HamperStoreWeb.DataAcess.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product>  Products { get; set; }
         public DbSet<Hamper>  Hampers { get; set; }
+        public DbSet<HamperCategory> HamperCategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder option)
         {

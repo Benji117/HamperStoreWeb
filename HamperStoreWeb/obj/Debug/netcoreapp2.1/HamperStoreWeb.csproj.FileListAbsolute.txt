@@ -50,7 +50,6 @@ C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\bin\Debug\netcoreapp2.1\Ham
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\bin\Debug\netcoreapp2.1\HamperStoreWeb.pdb
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\bin\Debug\netcoreapp2.1\HamperStoreWeb.Views.dll
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\bin\Debug\netcoreapp2.1\HamperStoreWeb.Views.pdb
-C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.csprojAssemblyReference.cache
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.csproj.CoreCompileInputs.cache
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.RazorAssemblyInfo.cache
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.RazorAssemblyInfo.cs
@@ -66,6 +65,16 @@ C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Raz
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Details.g.cshtml.cs
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Edit.g.cshtml.cs
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Index.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\HamperCategories\Create.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\HamperCategories\Delete.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\HamperCategories\Details.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\HamperCategories\Edit.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\HamperCategories\Index.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Create.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Delete.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Details.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Edit.g.cshtml.cs
+C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Index.g.cshtml.cs
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
@@ -88,8 +97,3 @@ C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Ham
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.dll
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.pdb
 C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\HamperStoreWeb.csproj.CopyComplete
-C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Create.g.cshtml.cs
-C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Delete.g.cshtml.cs
-C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Details.g.cshtml.cs
-C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Edit.g.cshtml.cs
-C:\Users\harol\Desktop\HamperStoreWeb\HamperStoreWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hampers\Index.g.cshtml.cs
