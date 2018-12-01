@@ -83,8 +83,7 @@ namespace HamperStoreWeb.Controllers
                     ProductName = productCreateViewModel.ProductName.ToString(),
                     ProductCOde = Convert.ToInt32(GenerateRandomNumber()),
                     Discontinued = productCreateViewModel.Discontinued,
-                    Price = Convert.ToDecimal(productCreateViewModel.Price),
-                    CategoryId = productCreateViewModel.CategoryId                    
+                    Price = Convert.ToDecimal(productCreateViewModel.Price)        
                 };
                               
                 _context.Products.Add(product);

@@ -11,6 +11,7 @@ namespace HamperStoreWeb.DataAcess.Models
         public int HamperCategoryId { get; set; }
         [Required, Display(Name = "Category Name")]
         public string HamperCategoryName { get; set; }
+        public string Description { get; set; }
         public bool Discontinued { get; set; }
 
         //relationships

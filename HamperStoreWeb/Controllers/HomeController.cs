@@ -5,14 +5,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HamperStoreWeb.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using HamperStoreWeb.DataAcess.Models;
 
 namespace HamperStoreWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly HamperStoreEntities _context;
+
+        public HomeController(HamperStoreEntities context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var hamperCategoryList = _context.HamperCategories.ToList();
+            return View(hamperCategoryList);
         }
 
         public IActionResult About()
