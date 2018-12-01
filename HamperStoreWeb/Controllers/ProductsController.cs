@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HamperStoreWeb.DataAcess.Models;
+using HamperStoreWeb.ViewModels;
 
 namespace HamperStoreWeb.Controllers
 {
@@ -16,6 +17,18 @@ namespace HamperStoreWeb.Controllers
         public ProductsController(HamperStoreEntities context)
         {
             _context = context;
+        }
+        //Create Random number
+        public string GenerateRandomNumber()
+        {
+            Random randomNumber = new Random();
+            string r = "";
+            int i;
+            for (i = 1; i < 11; i++)
+            {
+                r += randomNumber.Next(0, 9).ToString();
+            }
+            return r;
         }
 
         // GET: Products
@@ -47,8 +60,12 @@ namespace HamperStoreWeb.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
-            return View();
+            //We use A STRONGLY TYPE VIEW TO PRESENT THE CREATE GET: VIEW
+            var prodCreateViewModel = new ProductCreateViewModel();
+            //use a list of categories from context instead of using viewData below
+            //NOT USED: ViewData["CategoryList"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
+            prodCreateViewModel.categoriesList = _context.Categories.ToList();
+            return View(prodCreateViewModel);
         }
 
         // POST: Products/Create
@@ -56,16 +73,25 @@ namespace HamperStoreWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductCOde,Price,Discontinued,CategoryId")] Product product)
+        public async Task<IActionResult> Create(ProductCreateViewModel productCreateViewModel)
+        //SCAFFOLDED USED: public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductCOde,Price,Discontinued,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                var product = new Product()
+                {
+                    ProductName = productCreateViewModel.ProductName.ToString(),
+                    ProductCOde = Convert.ToInt32(GenerateRandomNumber()),
+                    Discontinued = productCreateViewModel.Discontinued,
+                    Price = Convert.ToDecimal(productCreateViewModel.Price),
+                    CategoryId = productCreateViewModel.CategoryId                    
+                };
+                              
+                _context.Products.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
+            return View();
         }
 
         // GET: Products/Edit/5

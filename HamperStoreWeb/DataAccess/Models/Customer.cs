@@ -23,7 +23,9 @@ namespace HamperStoreWeb.DataAcess.Models
         public string Phone { get; set; }
         [Required, MaxLength(100), Display(Name = "Residential Address")]
         public string Address { get; set; }
-        //Foreign Key
+
+        //relationships
+        //1-* - one Customer has many hampers
         public ICollection<Hamper> Hampers { get; set; }
 
 

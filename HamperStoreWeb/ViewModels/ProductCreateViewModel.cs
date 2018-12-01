@@ -12,16 +12,15 @@ namespace HamperStoreWeb.ViewModels
     public class ProductCreateViewModel : Product
     {
         public int ProductId { get; set; }
-        [Required, StringLength(50),Display(Name ="Product Name")]
+        [Required,Display(Name ="Product Name")]
         public string ProductName { get; set; }
-        [Required, MaxLength(10), HiddenInput(DisplayValue = false)]
-        public int ProductCOde { get; set; }
-        [Required, MaxLength(10)]
+        //[Required, MaxLength(10), HiddenInput(DisplayValue = false)]
+        //public int ProductCOde { get; set; }
+        [Required]
         public decimal Price { get; set; }
         [Required]
-        public bool Discontinued { get; set; }
-       
-        public IEnumerable<Category> categories { get; set; }
+        public bool Discontinued { get; set; }       
+        public List<Category> categoriesList { get; set; }
 
 
 

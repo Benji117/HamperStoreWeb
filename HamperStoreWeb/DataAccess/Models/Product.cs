@@ -17,10 +17,12 @@ namespace HamperStoreWeb.DataAcess.Models
         public decimal Price { get; set; }
         [Required]
         public bool Discontinued { get; set; }
-        //fk
-        public int CategoryId { get; set; }
-        //Added Virtual Property to Allow EF to Lazy-load Genre and Artist as Necessary
-        public virtual Category Category { get; set; }
-         
+
+        //relationships
+        //fk - 1-* Hamper has many products - No foreign Key
+        public Hamper Hamper { get; set; }
+        //1-1 - one Product has one Category
+        public Category Category { get; set; }
+
     }
 }
