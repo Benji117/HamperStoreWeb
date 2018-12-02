@@ -13,8 +13,8 @@ namespace HamperStoreWeb.DataAcess.Models
 
         //relationships
         //1-1 - one Product has one Category - Foreign Key and Nav Property
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
+        //public int ProductId { get; set; }
+        //public Product Product { get; set; }
 
 
 

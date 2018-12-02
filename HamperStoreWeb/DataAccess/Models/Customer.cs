@@ -17,7 +17,7 @@ namespace HamperStoreWeb.DataAcess.Models
         public string FirstName { get; set; }
         [Required, MaxLength(50), Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Required, MaxLength(8), Display(Name = "Date of Birth")]
+        [Required, Display(Name = "Date of Birth")]
         public DateTime DOB { get; set; }
         [Required, MaxLength(10), Display(Name = "Contact Number")]
         public string Phone { get; set; }
@@ -26,7 +26,7 @@ namespace HamperStoreWeb.DataAcess.Models
 
         //relationships
         //1-* - one Customer has many hampers
-        public ICollection<Hamper> Hampers { get; set; }
+        //public ICollection<Hamper> Hampers { get; set; }
 
 
 

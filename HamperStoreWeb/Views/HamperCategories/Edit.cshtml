@@ -19,17 +19,17 @@
                 <span asp-validation-for="HamperCategoryName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Discontinued" /> @Html.DisplayNameFor(model => model.Discontinued)
                     </label>
                 </div>
             </div>
-            @*<div class="form-group">
-                <label asp-for="HamperId" class="control-label"></label>
-                <select asp-for="HamperId" class="form-control" asp-items="ViewBag.HamperId"></select>
-                <span asp-validation-for="HamperId" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

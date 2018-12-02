@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HamperStoreWeb.Migrations
 {
     [DbContext(typeof(HamperStoreEntities))]
-    [Migration("20181124051733_UpdatedHamperCategoryNameToString")]
-    partial class UpdatedHamperCategoryNameToString
+    [Migration("20181202074046_EditedDataAnnotationDiscontinuedProductsTbl")]
+    partial class EditedDataAnnotationDiscontinuedProductsTbl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,16 +75,12 @@ namespace HamperStoreWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CustomerId");
-
                     b.Property<string>("HamperName")
                         .IsRequired();
 
                     b.Property<decimal>("TotalPrice");
 
                     b.HasKey("HamperId");
-
-                    b.HasIndex("CustomerId");
 
                     b.ToTable("Hampers");
                 });
@@ -95,17 +91,14 @@ namespace HamperStoreWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Description");
+
                     b.Property<bool>("Discontinued");
 
                     b.Property<string>("HamperCategoryName")
                         .IsRequired();
 
-                    b.Property<int>("HamperId");
-
                     b.HasKey("HamperCategoryId");
-
-                    b.HasIndex("HamperId")
-                        .IsUnique();
 
                     b.ToTable("HamperCategories");
                 });
@@ -115,8 +108,6 @@ namespace HamperStoreWeb.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId");
 
                     b.Property<bool>("Discontinued");
 
@@ -130,35 +121,13 @@ namespace HamperStoreWeb.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
+                    b.Property<string>("Productdescription")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
                     b.HasKey("ProductId");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("HamperStoreWeb.DataAcess.Models.Hamper", b =>
-                {
-                    b.HasOne("HamperStoreWeb.DataAcess.Models.Customer")
-                        .WithMany("Hampers")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("HamperStoreWeb.DataAcess.Models.HamperCategory", b =>
-                {
-                    b.HasOne("HamperStoreWeb.DataAcess.Models.Hamper")
-                        .WithOne("HamperCategory")
-                        .HasForeignKey("HamperStoreWeb.DataAcess.Models.HamperCategory", "HamperId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("HamperStoreWeb.DataAcess.Models.Product", b =>
-                {
-                    b.HasOne("HamperStoreWeb.DataAcess.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -2,7 +2,7 @@
 
 namespace HamperStoreWeb.Migrations
 {
-    public partial class UpdatedModelsWithDataAnnotations : Migration
+    public partial class EditedDataAnnotationDatetimeCustomerTbl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

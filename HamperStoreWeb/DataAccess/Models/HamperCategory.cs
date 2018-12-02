@@ -16,7 +16,7 @@ namespace HamperStoreWeb.DataAcess.Models
 
         //relationships
         //1-1 - one Hamper has one HamperCategory - Foreign Key and Nav Property
-        public int HamperId { get; set; }
-        public Hamper Hamper { get; set; }
+        //public int HamperId { get; set; }
+        //public Hamper Hamper { get; set; }
     }
 }

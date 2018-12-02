@@ -16,11 +16,11 @@ namespace HamperStoreWeb.DataAcess.Models
         
         //relationships
         //1-* - one Hamper has many products
-        public ICollection<Product> Products { get; set; }
-        //1-* - one Customer has many hampers
-        public Customer Customer { get; set; }
-        //1-1 - one Hamper has one HamperCategory
-        public HamperCategory HamperCategory { get; set; }
+        //public ICollection<Product> Products { get; set; }
+        ////1-* - one Customer has many hampers
+        //public Customer Customer { get; set; }
+        ////1-1 - one Hamper has one HamperCategory
+        //public HamperCategory HamperCategory { get; set; }
 
     }
 }

@@ -1,4 +1,4 @@
-﻿@model HamperStoreWeb.ViewModels.ProductCreateViewModel;
+﻿@model HamperStoreWeb.ViewModels.ProductCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -17,14 +17,14 @@
                 <input asp-for="ProductName" class="form-control" />
                 <span asp-validation-for="ProductName" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="ProductCOde" class="control-label"></label>
-                <input asp-for="ProductCOde" class="form-control" />
-                <span asp-validation-for="ProductCOde" class="text-danger"></span>
-            </div>*@
+            <div class="form-group">
+                <label asp-for="ProductCode" class="control-label"></label>
+                <input asp-for="ProductCode" class="form-control" />
+                <span asp-validation-for="ProductCode" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <input asp-for="Price" type="number" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,10 +35,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label asp-for="CategoryId" class="control-label">Category</label>
-                <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(Model.categoriesList,"CategoryId", "CategoryName"))">
-                <option>Please select one</option>></select>
-                @*<select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryList"></select>*@
+                <label asp-for="Productdescription" class="control-label"></label>
+                <input asp-for="Productdescription" class="form-control" />
+                <span asp-validation-for="Productdescription" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
