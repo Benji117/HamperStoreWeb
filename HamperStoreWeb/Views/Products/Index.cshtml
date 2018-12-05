@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductCOde)
+                @Html.DisplayNameFor(model => model.ProductCode)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Price)
@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.Discontinued)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @Html.DisplayNameFor(model => model.Productdescription)
             </th>
             <th></th>
         </tr>
@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductCOde)
+                @Html.DisplayFor(modelItem => item.ProductCode)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Discontinued)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                @Html.DisplayFor(modelItem => item.Productdescription)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |

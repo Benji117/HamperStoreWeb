@@ -53,10 +53,10 @@ namespace HamperStoreWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HamperCategoryId,HamperCategoryName,Discontinued,HamperId")] HamperCategory hamperCategory)
+        public async Task<IActionResult> Create([Bind("HamperCategoryId,HamperCategoryName,Description,Discontinued")] HamperCategory hamperCategory)
         {
             if (ModelState.IsValid)
-            {   
+            {
                 _context.Add(hamperCategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -85,7 +85,7 @@ namespace HamperStoreWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HamperCategoryId,HamperCategoryName,Discontinued,HamperId")] HamperCategory hamperCategory)
+        public async Task<IActionResult> Edit(int id, [Bind("HamperCategoryId,HamperCategoryName,Description,Discontinued")] HamperCategory hamperCategory)
         {
             if (id != hamperCategory.HamperCategoryId)
             {

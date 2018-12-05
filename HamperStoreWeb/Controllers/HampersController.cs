@@ -53,7 +53,7 @@ namespace HamperStoreWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HamperId,HamperName,TotalPrice,CustomerId")] Hamper hamper)
+        public async Task<IActionResult> Create([Bind("HamperId,HamperName,TotalPrice")] Hamper hamper)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace HamperStoreWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HamperId,HamperName,TotalPrice,CustomerId")] Hamper hamper)
+        public async Task<IActionResult> Edit(int id, [Bind("HamperId,HamperName,TotalPrice")] Hamper hamper)
         {
             if (id != hamper.HamperId)
             {

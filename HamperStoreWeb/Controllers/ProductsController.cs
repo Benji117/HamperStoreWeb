@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HamperStoreWeb.DataAcess.Models;
+using HamperStoreWeb.ViewModels;
 
 namespace HamperStoreWeb.Controllers
 {
@@ -21,8 +22,7 @@ namespace HamperStoreWeb.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var hamperStoreEntities = _context.Products.Include(p => p.Category);
-            return View(await hamperStoreEntities.ToListAsync());
+            return View(await _context.Products.ToListAsync());
         }
 
         // GET: Products/Details/5
@@ -34,7 +34,6 @@ namespace HamperStoreWeb.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {
@@ -47,8 +46,9 @@ namespace HamperStoreWeb.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
-            return View();
+            var vm = new ProductCreateViewModel();
+
+            return View(vm);
         }
 
         // POST: Products/Create
@@ -56,17 +56,37 @@ namespace HamperStoreWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductCOde,Price,Discontinued,CategoryId")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductName,ProductCode,Price,Discontinued,Productdescription")] ProductCreateViewModel productCreateViewModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                var Newproduct = new Product
+                {
+                    ProductName = productCreateViewModel.ProductName,
+                    ProductCode = productCreateViewModel.ProductCode,
+                    Price = productCreateViewModel.Price,
+                    Discontinued = productCreateViewModel.Discontinued,
+                    Productdescription = productCreateViewModel.Productdescription
+                };
+                _context.Products.Add(Newproduct);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
+            return View(productCreateViewModel);
         }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductCode,Price,Discontinued,Productdescription")] Product product)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        //product.ProductCode = product.ProductCode;
+        //        _context.Add(product);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(product);
+        //}
 
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -81,7 +101,6 @@ namespace HamperStoreWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
 
@@ -90,9 +109,9 @@ namespace HamperStoreWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductCOde,Price,Discontinued,CategoryId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Price,ProductCode, Discontinued,Productdescription")] ProductEditViewModel productEditViewModel)
         {
-            if (id != product.ProductId)
+            if (id != productEditViewModel.ProductId)
             {
                 return NotFound();
             }
@@ -101,12 +120,22 @@ namespace HamperStoreWeb.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    var UpdatedProduct = new Product
+                    {
+                        ProductId = id,
+                        ProductName = productEditViewModel.ProductName,
+                        Price = productEditViewModel.Price,
+                        ProductCode = productEditViewModel.ProductCode,
+                        Discontinued = productEditViewModel.Discontinued,
+                        Productdescription = productEditViewModel.Productdescription
+                        
+                    };
+                    _context.Products.Update(UpdatedProduct);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.ProductId))
+                    if (!ProductExists(productEditViewModel.ProductId))
                     {
                         return NotFound();
                     }
@@ -117,9 +146,39 @@ namespace HamperStoreWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
+            return View(productEditViewModel);
         }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductCode,Price,Discontinued,Productdescription")] Product product)
+        //{
+        //    if (id != product.ProductId)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _context.Update(product);
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!ProductExists(product.ProductId))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(product);
+        //}
 
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -130,7 +189,6 @@ namespace HamperStoreWeb.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.Category)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {

@@ -13,13 +13,14 @@ namespace HamperStoreWeb.DataAcess.Models
         public string HamperName { get; set; }
         [Required, Display(Name = "Price")]
         public decimal TotalPrice { get; set; }
+        
+        //relationships
+        //1-* - one Hamper has many products
+        //public ICollection<Product> Products { get; set; }
+        ////1-* - one Customer has many hampers
+        //public Customer Customer { get; set; }
+        ////1-1 - one Hamper has one HamperCategory
+        //public HamperCategory HamperCategory { get; set; }
 
-        //fk - one customer many hampers
-        public int CustomerId { get; set; }
-        //fk - one HamperCategoryId many hampers
-        public int HamperCategoryId { get; set; }
-
-        //Added Virtual Property to Allow EF to Lazy-load Genre and Artist as Necessary
-        public virtual HamperCategory HamperCategory { get; set; }
     }
 }

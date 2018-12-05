@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HamperStoreWeb.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialCreateNoRelationship : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,26 +40,18 @@ namespace HamperStoreWeb.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "HamperCategories",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(nullable: false)
+                    HamperCategoryId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ProductName = table.Column<string>(maxLength: 50, nullable: false),
-                    ProductCOde = table.Column<int>(maxLength: 10, nullable: false),
-                    Price = table.Column<decimal>(maxLength: 10, nullable: false),
-                    Discontinued = table.Column<bool>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    HamperCategoryName = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Discontinued = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.ProductId);
-                    table.ForeignKey(
-                        name: "FK_Products_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_HamperCategories", x => x.HamperCategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,44 +61,46 @@ namespace HamperStoreWeb.Migrations
                     HamperId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     HamperName = table.Column<string>(nullable: false),
-                    TotalPrice = table.Column<decimal>(nullable: false),
-                    CustomerId = table.Column<int>(nullable: false)
+                    TotalPrice = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Hampers", x => x.HamperId);
-                    table.ForeignKey(
-                        name: "FK_Hampers_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Hampers_CustomerId",
-                table: "Hampers",
-                column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_CategoryId",
-                table: "Products",
-                column: "CategoryId");
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ProductName = table.Column<string>(maxLength: 50, nullable: false),
+                    ProductCOde = table.Column<int>(maxLength: 10, nullable: false),
+                    Price = table.Column<decimal>(maxLength: 10, nullable: false),
+                    Discontinued = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.ProductId);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Hampers");
-
-            migrationBuilder.DropTable(
-                name: "Products");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Customers");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "HamperCategories");
+
+            migrationBuilder.DropTable(
+                name: "Hampers");
+
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }

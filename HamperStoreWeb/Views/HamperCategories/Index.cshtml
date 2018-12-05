@@ -4,16 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Hamper Types</h2>
+<h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Create New Type</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.HamperCategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Discontinued)
@@ -26,6 +29,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.HamperCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Discontinued)

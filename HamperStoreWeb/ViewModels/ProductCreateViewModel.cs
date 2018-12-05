@@ -9,19 +9,14 @@ using HamperStoreWeb.DataAcess.Models;
 
 namespace HamperStoreWeb.ViewModels
 {
-    public class ProductCreateViewModel : Product
+    public class ProductCreateViewModel
     {
-        public int ProductId { get; set; }
-        [Required, StringLength(50),Display(Name ="Product Name")]
         public string ProductName { get; set; }
-        [Required, MaxLength(10), HiddenInput(DisplayValue = false)]
-        public int ProductCOde { get; set; }
-        [Required, MaxLength(10)]
+        public string ProductCode { get; set; }
         public decimal Price { get; set; }
-        [Required]
         public bool Discontinued { get; set; }
-       
-        public IEnumerable<Category> categories { get; set; }
+        public string Productdescription { get; set; }
+        //public List<Category> categoriesList { get; set; }
 
 
 
