@@ -12,10 +12,22 @@ body {
     padding-right: 15px;
 }
 
+/* Wrapping element */
+/* Set some basic centering and font size for the the dynamically created titles and descriptions */
+.title_justified {
+    text-align: center;
+    font-family: Cooper;
+}
+.content_justified {
+    text-align: center;
+    font-family: Cooper
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
-    line-height: 1.4;
+    line-height: 20;
+    /*line-height: 1.4;*/
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
