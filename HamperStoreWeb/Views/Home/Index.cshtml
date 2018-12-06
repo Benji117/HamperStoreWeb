@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IList<HamperStoreWeb.DataAcess.Models.HamperCategory>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,6 +11,17 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
+            <img src="~/images/HamperStore_Banner_Title_gettyimages-933985744-170667a.jpg" alt="HamperStore_Banner_Title" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p class="banner_lower_text">
+                    WELCOME TO THE HAMPER STORE - ENJOY YOUR STAY.
+                    @*<a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                        Learn More
+                    </a>*@
+                </p>
+            </div>
+        </div>
+        @*<div class="item active">
             <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
@@ -19,8 +31,8 @@
                     </a>
                 </p>
             </div>
-        </div>
-        <div class="item">
+        </div>*@
+        @*<div class="item">
             <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
@@ -41,7 +53,7 @@
                     </a>
                 </p>
             </div>
-        </div>
+        </div>*@
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -52,43 +64,62 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
+<div class="row" style="padding-top:15px; padding-left:20px; font-family:Cooper"> <h2>Our most Popular Hampers</h2></div>
+<div class="row" style="padding-top:15px">
+    @foreach (var t in Model)
+    {
+        @*<div class="col-sm-6 col-md-4 col-lg-4" style="background-color:moccasin; margin-left:5px;margin-top:5px;width: 31%;">
+                <h2 class="text-center" style="font-family:Cooper">@t.HamperCategoryName</h2>
+                <ul class="list-unstyled">
+                    <li><img src="~/images/Date_Night_Hamper_Small_gettyimages-583726730-170x170.jpg" class="center-block" style="background-color:moccasin; border-radius:25px;"/></li>
+                    <li class="text-center" style="font-family:Cooper; padding-top:5px">@t.Description</li>
+                    <li class="text-center">more info on the @t.HamperCategoryName Hamper<a asp-controller="HamperCategory" asp-action="index"> Here</a></li>
+                </ul>
+            </div>*@
+        <div class="col-sm-6 col-md-4 col-lg-4 card" style="width: 32rem;">
+            <img class="card-img-top img-responsive center-block" src="~/images/Date_Night_Hamper_Small_gettyimages-583726730-170x170.jpg" alt="Card Hamper image">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center" style="font-family:Cooper">@t.HamperCategoryName</h5>
+                <p class="card-text">@t.Description</p>
+                <a asp-controller="HamperCategory" asp-action="index" class="btn btn-warning center-block"><i class="glyphicon glyphicon-info-sign"></i> View Details </a>
+            </div>
+        </div>
+    }
+    @*<div class="col-md-3">
+            <h2>Application uses</h2>
+            <ul>
+                <li>Sample pages using ASP.NET Core MVC</li>
+                <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>How to</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Overview</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Run &amp; Deploy</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+            </ul>
+        </div>*@
 </div>

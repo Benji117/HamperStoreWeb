@@ -84,7 +84,7 @@ using HamperStoreWeb.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(400, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "06d06740e9e14377a3db3de71d5071d2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "21a9a2bd76ae449c853abdcd7834c3b7", async() => {
                 BeginContext(454, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -119,7 +119,7 @@ using HamperStoreWeb.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(470, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b28285d020744c738b9fc77f8dd6a647", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8915627e43a7469ea8e1a3a77477d963", async() => {
                 BeginContext(492, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

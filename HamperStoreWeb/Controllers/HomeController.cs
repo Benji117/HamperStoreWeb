@@ -21,8 +21,8 @@ namespace HamperStoreWeb.Controllers
 
         public IActionResult Index()
         {
-            var hamperCategoryList = _context.HamperCategories.ToList();
-            return View(hamperCategoryList);
+            List<HamperCategory> hamperCategoryList = _context.HamperCategories.ToList();
+            return View(hamperCategoryList.ToList());
         }
 
         public IActionResult About()
